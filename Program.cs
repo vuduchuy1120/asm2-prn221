@@ -13,7 +13,7 @@ builder.Services.AddDbContext<Assignment2_17_VuDucHuyContext>(options =>
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 	.AddCookie(options =>
 	{
-		options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+		options.ExpireTimeSpan = TimeSpan.FromMinutes(400);
 		options.SlidingExpiration = true;
 		options.AccessDeniedPath = "/Forbidden";
 		options.LogoutPath = "/Logout";

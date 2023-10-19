@@ -3,7 +3,6 @@
 @{
 }
 <form method="post">
-	<div asp-validation-summary="All" class="text-danger"></div>
 	<div class="container py-5 h-100" >
 		<div class="row d-flex justify-content-center align-items-center h-100">
 			<div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -24,6 +23,8 @@
 							<span asp-validation-for="User.Password" class="text-danger"></span>
 
 						</div>
+						<div asp-validation-summary="All" class="text-danger"></div>
+
 						<button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
 					</div>
 				</div>

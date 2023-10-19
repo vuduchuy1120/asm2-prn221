@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment2_17_VuDucHuy.Pages.Customers
 {
+	
 	[Authorize(Policy = "Admin")]
 	public class EditModel : PageModel
     {
@@ -25,7 +26,9 @@ namespace Assignment2_17_VuDucHuy.Pages.Customers
         [BindProperty]
         public Customer Customer { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+		public UserType UserType { get; set; } = default!;
+
+		public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Customer == null)
             {
@@ -82,4 +85,5 @@ namespace Assignment2_17_VuDucHuy.Pages.Customers
           return (_context.Customer.Any(e => e.username.ToLower().Trim().Equals(username.ToLower().Trim())));
         }
     }
+	
 }

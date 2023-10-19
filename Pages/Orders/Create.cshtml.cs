@@ -42,7 +42,7 @@ namespace Assignment2_17_VuDucHuy.Pages.Orders
             _context.Order.Add(Order);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Admin");
         }
     }
 }

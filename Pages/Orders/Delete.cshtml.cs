@@ -59,7 +59,7 @@ namespace Assignment2_17_VuDucHuy.Pages.Orders
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Admin");
         }
     }
 }

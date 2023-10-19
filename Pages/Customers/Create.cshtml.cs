@@ -12,6 +12,12 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment2_17_VuDucHuy.Pages.Customers
 {
+    public enum UserType
+    {
+		User = 0,
+		Admin = 1
+	}
+
 	[Authorize(Policy = "Admin")]
 	public class CreateModel : PageModel
     {
@@ -29,7 +35,8 @@ namespace Assignment2_17_VuDucHuy.Pages.Customers
 
         [BindProperty]
         public Customer Customer { get; set; } = default!;
-        
+        [BindProperty]
+        public UserType UserType { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()

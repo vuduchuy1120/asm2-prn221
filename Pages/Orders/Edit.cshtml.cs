@@ -71,7 +71,7 @@ namespace Assignment2_17_VuDucHuy.Pages.Orders
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Admin");
         }
 
         private bool OrderExists(int id)
