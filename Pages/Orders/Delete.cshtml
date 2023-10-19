@@ -49,8 +49,6 @@
             @Html.DisplayFor(model => model.Order.Customer.customerId)
         </dd>
     </dl>
-
-
     <form method="post" id="isDelete">
         <input type="hidden" asp-for="Order.OrderDetails" />
         <button type="button" class="btn btn-danger" onClick="Confirm()">Delete</button> |
