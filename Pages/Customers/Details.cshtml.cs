@@ -10,6 +10,7 @@ using Assignment2_17_VuDucHuy.Models;
 
 namespace Assignment2_17_VuDucHuy.Pages.Customers
 {
+
     public class DetailsModel : PageModel
     {
         private readonly Assignment2_17_VuDucHuy.Data.Assignment2_17_VuDucHuyContext _context;

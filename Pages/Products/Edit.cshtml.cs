@@ -8,10 +8,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Assignment2_17_VuDucHuy.Data;
 using Assignment2_17_VuDucHuy.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment2_17_VuDucHuy.Pages.Products
 {
-    public class EditModel : PageModel
+	[Authorize(Policy = "Admin")]
+	public class EditModel : PageModel
     {
         private readonly Assignment2_17_VuDucHuy.Data.Assignment2_17_VuDucHuyContext _context;
 

@@ -2,65 +2,70 @@
 @model Assignment2_17_VuDucHuy.Pages.Customers.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+	<a asp-page="Create">Create New Customer</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer[0].fullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer[0].address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer[0].phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer[0].username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer[0].password)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer[0].type)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Customer) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.fullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.password)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.type)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.customerId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.customerId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.customerId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Customer[0].customerId)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Customer[0].fullName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Customer[0].address)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Customer[0].phone)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Customer[0].username)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Customer[0].password)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Customer[0].type)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Customer)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.customerId)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.fullName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.address)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.phone)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.username)
+				</td>
+				<td>
+					********
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.type)
+				</td>
+				<td>
+					<a asp-page="./Edit" asp-route-id="@item.customerId">Edit</a> |
+					<a asp-page="./Details" asp-route-id="@item.customerId">Details</a> |
+					<a asp-page="./Delete" asp-route-id="@item.customerId">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>

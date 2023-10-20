@@ -46,8 +46,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.unitPrice)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.productImage)
+            <td width="200px" > 
+               <img class="card-img-top" src="@item.productImage" height="200"/>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Supplier.companyName)

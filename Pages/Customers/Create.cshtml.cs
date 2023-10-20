@@ -8,10 +8,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Assignment2_17_VuDucHuy.Data;
 using Assignment2_17_VuDucHuy.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment2_17_VuDucHuy.Pages.Customers
 {
-    public class CreateModel : PageModel
+    public enum UserType
+    {
+		User = 0,
+		Admin = 1
+	}
+
+	[Authorize(Policy = "Admin")]
+	public class CreateModel : PageModel
     {
         private readonly Assignment2_17_VuDucHuy.Data.Assignment2_17_VuDucHuyContext _context;
 
@@ -27,7 +35,8 @@ namespace Assignment2_17_VuDucHuy.Pages.Customers
 
         [BindProperty]
         public Customer Customer { get; set; } = default!;
-        
+        [BindProperty]
+        public UserType UserType { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()

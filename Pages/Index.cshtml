@@ -1,10 +1,50 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+	ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<h1 class="display-4">Welcome @User.Claims.FirstOrDefault()?.Value</h1>
 </div>
+
+<form method="post">
+	<div class="container row g-3 align-items-center">
+		<div class="col-4">
+			<input class="form-control" style="width: 350px" asp-for="searchValue" placeholder="Input search value" />
+		</div>
+		<div class="col-auto">
+			<select class="form-control" asp-for="searchBy" asp-items="ViewBag.searchBys"></select>
+		</div>
+		<div class="col-auto">
+			<button type="submit" class="btn btn-secondary">Search</button>
+		</div>
+	</div>
+</form>
+<div class="container">
+	<span class="mt-5" style="font-size:30px">@Model.notFound</span>
+</div>
+<div class="container">
+	<div class="row">
+		@foreach (var item in Model.Products)
+		{
+			<div class="col-sm-4 mt-3">
+
+				<div class="card" style="width: 18rem;">
+					<img src="@item.productImage" class="card-img-top" style="height:220px" alt="This is product images">
+					<div class="card-body">
+						<h5 class="card-title">@item.productName</h5>
+						<h6>Category: @item.Category.categoryName</h6>
+						<p>@item.Category.description</p>
+						<p class="card-text">@item.unitPrice $</p>
+						<button type="submit" class="btn btn-primary">Add to cart</button>
+						<a asp-page="./Products/Details" asp-route-id="@item.productID">View Details</a>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>
+
+
+

@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Assignment2_17_VuDucHuy.Data;
 using Assignment2_17_VuDucHuy.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment2_17_VuDucHuy.Pages.Products
 {
-    public class CreateModel : PageModel
+	[Authorize(Policy = "Admin")]
+	public class CreateModel : PageModel
     {
         private readonly Assignment2_17_VuDucHuy.Data.Assignment2_17_VuDucHuyContext _context;
 
@@ -37,6 +39,7 @@ namespace Assignment2_17_VuDucHuy.Pages.Products
           //  {
           //      return Page();
           //  }
+          // push everything
 
             _context.Product.Add(Product);
             await _context.SaveChangesAsync();
