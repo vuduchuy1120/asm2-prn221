@@ -39,6 +39,7 @@ namespace Assignment2_17_VuDucHuy.Pages.Products
           //  {
           //      return Page();
           //  }
+          // push everything
 
             _context.Product.Add(Product);
             await _context.SaveChangesAsync();
