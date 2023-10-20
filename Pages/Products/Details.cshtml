@@ -2,58 +2,60 @@
 @model Assignment2_17_VuDucHuy.Pages.Products.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+	ViewData["Title"] = "Details";
 }
 
 <h1>Details</h1>
 
 <div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.productName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.productName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.quantityPerUnit)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.quantityPerUnit)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.unitPrice)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.unitPrice)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.productImage)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.productImage)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Supplier)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Supplier.companyName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Category)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Category.categoryName)
-        </dd>
-    </dl>
+	<h4>Product</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Product.productName)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Product.productName)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Product.quantityPerUnit)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Product.quantityPerUnit)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Product.unitPrice)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Product.unitPrice)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Product.productImage)
+		</dt>
+		<dd class="col-sm-10" >
+			<img class="card-img-top" src="@Model.Product.productImage" style="height: 200px; width:200px" />
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Product.Supplier)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Product.Supplier.companyName)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Product.Category)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Product.Category.categoryName)
+		</dd>
+	</dl>
 </div>
 <div>
-    @if (User.Claims.SingleOrDefault(c => c.Type == "Role")?.Value == "1")
-    {
-        <a asp-page="./Edit" asp-route-id="@Model.Product?.productID">Edit</a><span>|</span>
-        <a asp-page="./Index">Back to List</a>
-    }
-    
+	@if (User.Claims.SingleOrDefault(c => c.Type == "Role")?.Value == "1")
+	{
+		<a asp-page="./Edit" asp-route-id="@Model.Product?.productID">Edit</a>
+
+		<span>|</span>
+		<a asp-page="./Index">Back to List</a>
+	}
+
 </div>

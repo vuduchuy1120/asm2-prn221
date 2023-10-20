@@ -34,6 +34,8 @@
 					<img src="@item.productImage" class="card-img-top" style="height:220px" alt="This is product images">
 					<div class="card-body">
 						<h5 class="card-title">@item.productName</h5>
+						<h6>Category: @item.Category.categoryName</h6>
+						<p>@item.Category.description</p>
 						<p class="card-text">@item.unitPrice $</p>
 						<button type="submit" class="btn btn-primary">Add to cart</button>
 						<a asp-page="./Products/Details" asp-route-id="@item.productID">View Details</a>

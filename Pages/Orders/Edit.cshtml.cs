@@ -48,10 +48,10 @@ namespace Assignment2_17_VuDucHuy.Pages.Orders
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
 
             _context.Attach(Order).State = EntityState.Modified;
 
